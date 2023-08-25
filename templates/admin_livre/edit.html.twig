@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier{% endblock %}
+{% block h1 %}Modifier{% endblock %}
+
+{% block body %}
+    
+    <a class="btn btn-primary mt-4" href="{{ path('app_admin_livre_index') }}">Retour</a>
+
+    {{ include('admin_livre/_form.html.twig', {'button_label': 'Update'}) }}
+
+    
+
+    {{ include('admin_livre/_delete_form.html.twig') }}
+{% endblock %}

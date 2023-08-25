@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre index{% endblock %}
+
+{% block body %}
+    <h1>Livre index</h1>
+
+    <table class="table">
+        <thead class="table table-primary">
+            <tr>
+                <th>Id</th>
+                <th>Utilisateur</th>
+                <th>Livre</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livre in livres %}
+            <tr>
+                <td>{{ notification.id }}</td>
+                <td>{{ notification.user.email }}</td>
+                <td>{{ notification.livre.titre }}</td>
+                <td>{{ notification.createdAt ? notification.createdAt|date('Y-m-d H:i:s') }}</td>
+                <td><img src="{{ asset('images/livres/' ~ livre.imageName) }}" alt=""</td>
+                <td>{{ livre.updatedAt ? livre.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_livre_show', {'id': notification.id}) }}">Fiche</a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_livre_valid_notif', {'id': notification.id}) }}">Modifier</a>
+
+                    {{ include('admin_livre/_delete_form.html.twig') }}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun Résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_admin_livre_new') }}">Create new</a>
+{% endblock %}

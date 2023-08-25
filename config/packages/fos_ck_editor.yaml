@@ -1,0 +1,6 @@
+fos_ck_editor:
+    configs:
+        my_config:
+            toolbar: full
+        custom_config: 
+            toolbar: [ ["Source"], ["Bold", "Italic", "Underline", 'Strike', 'Subscript', 'Superscript'], ['TextColor', 'BGColor'], ['NumberedList', 'BulletedList'], ['Outdent', 'Indent'], ['Link', 'Unlink'], ['Image', 'Smiley', 'SpecialChar']]    
